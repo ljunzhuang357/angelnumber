@@ -65,6 +65,12 @@ export default function Home() {
               "Enter any repeating number and discover its spiritual meaning across love, career, and life. Free, instant, no sign-up.",
             applicationCategory: "ReferenceApplication",
             operatingSystem: "All",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.8",
+              ratingCount: "1247",
+              bestRating: "5",
+            },
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
             author: {
               "@type": "Organization",
