@@ -52,7 +52,29 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Angel Number — Decode the numbers you keep seeing",
+            url: "https://angelnumber.space",
+            description:
+              "Enter any repeating number and discover its spiritual meaning across love, career, and life. Free, instant, no sign-up.",
+            applicationCategory: "ReferenceApplication",
+            operatingSystem: "All",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            author: {
+              "@type": "Organization",
+              name: "Angel Number",
+              url: "https://angelnumber.space",
+            },
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-white">
       {/* ─── Nav ─── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/[0.06]">
         <div className="max-w-[1280px] mx-auto px-10 max-md:px-6 flex items-center justify-between h-16">
@@ -296,5 +318,6 @@ export default function Home() {
       </footer>
 
     </div>
+    </>
   );
 }
