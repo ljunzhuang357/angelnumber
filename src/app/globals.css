@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-accent: #d97757;
+  --color-accent-subtle: #fef6f3;
+  --color-fg-secondary: #666;
+  --color-fg-tertiary: #999;
+  --color-border: #eee;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0) }
+  20% { transform: translateX(-6px) }
+  40% { transform: translateX(6px) }
+  60% { transform: translateX(-4px) }
+  80% { transform: translateX(4px) }
+}
+.shake { animation: shake 0.4s ease }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 16px; border-radius: 9px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all .2s; cursor: pointer; border: none;
+  line-height: 1.4; font-family: inherit; gap: 6px; color: #666; background: transparent;
+}
+.btn-ghost:hover { color: #1a1a1a; background: rgba(0,0,0,0.04); }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 22px; border-radius: 9px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all .2s; cursor: pointer; border: none;
+  line-height: 1.4; font-family: inherit; gap: 6px; background: #1a1a1a; color: #fff;
+}
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+
+.btn-accent {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 22px; border-radius: 9px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all .2s; cursor: pointer; border: none;
+  line-height: 1.4; font-family: inherit; gap: 6px; background: #d97757; color: #fff;
+}
+.btn-accent:hover { background: #c8623e; transform: translateY(-1px); }
