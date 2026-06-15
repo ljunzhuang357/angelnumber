@@ -83,6 +83,7 @@ export default function Home() {
             Angel Number
           </a>
           <div className="flex gap-2">
+            <a href="/blog" className="btn-ghost">Blog</a>
             <a href="#tool" className="btn-ghost">Decode</a>
             <a href="#meanings" className="btn-primary">Try Now</a>
           </div>
@@ -301,14 +302,14 @@ export default function Home() {
               <p className="text-[14px] text-[#999] leading-relaxed max-w-[260px]">Decode the numbers the universe keeps showing you. Free spiritual guidance tool.</p>
             </div>
             {[
-              ["Tool", ["Decode a Number", "All Meanings"]],
-              ["Resources", ["What Are Angel Numbers", "How It Works"]],
-              ["Legal", ["Privacy Policy", "Terms of Use"]],
+              ["Tool", {"Decode a Number": "#tool", "All Meanings": "#meanings"}],
+              ["Resources", {"Blog": "/blog", "What Are Angel Numbers": "#", "How It Works": "#"}],
+              ["Legal", {"Privacy Policy": "#", "Terms of Use": "#"}],
             ].map(([title, links], i) => (
               <div key={i}>
-                <h4 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#bbb] mb-3.5">{title}</h4>
-                {(links as string[]).map((link, j) => (
-                  <a key={j} href="#" className="block text-[14px] text-[#666] no-underline py-1.5 transition-colors hover:text-[#1a1a1a]">{link}</a>
+                <h4 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#bbb] mb-3.5">{title as string}</h4>
+                {Object.entries(links as Record<string, string>).map(([label, href], j) => (
+                  <a key={j} href={href} className="block text-[14px] text-[#666] no-underline py-1.5 transition-colors hover:text-[#1a1a1a]">{label}</a>
                 ))}
               </div>
             ))}
