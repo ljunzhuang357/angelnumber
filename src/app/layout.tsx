@@ -29,6 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-963K61Z3KC"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-963K61Z3KC');`
+        }} />
       </head>
       <body className="font-['Inter',-apple-system,BlinkMacSystemFont,sans-serif] text-[#1a1a1a] antialiased min-h-screen">
         {children}
