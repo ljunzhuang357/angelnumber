@@ -85,7 +85,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/[0.06]">
         <div className="max-w-[1280px] mx-auto px-10 max-md:px-6 flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2.5 text-[17px] font-semibold tracking-tight no-underline text-[#1a1a1a]">
-            <span className="inline-flex items-center justify-center w-7 h-7 bg-[#1a1a1a] text-white rounded-[7px] text-sm">✦</span>
+            <img src="/logo.png" alt="Angel Number" className="w-7 h-7 rounded-[7px] object-contain" />
             Angel Number
           </a>
           <div className="flex gap-2">
@@ -304,13 +304,13 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-10 max-md:px-6">
           <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-10 max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-8">
             <div>
-              <h4 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#bbb] mb-3.5">✦ Angel Number</h4>
+              <h4 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#bbb] mb-3.5"><img src="/logo.png" alt="✦" className="w-3.5 h-3.5 inline-block mr-1 rounded-[3px] object-contain align-middle" />Angel Number</h4>
               <p className="text-[14px] text-[#999] leading-relaxed max-w-[260px]">Decode the numbers the universe keeps showing you. Free spiritual guidance tool.</p>
             </div>
             {[
               ["Tool", {"Decode a Number": "#tool", "All Meanings": "#meanings"}],
-              ["Resources", {"Blog": "/blog", "What Are Angel Numbers": "#", "How It Works": "#"}],
-              ["Legal", {"Privacy Policy": "#", "Terms of Use": "#"}],
+              ["Resources", {"Blog": "/blog", "About": "/about", "Contact": "/contact"}],
+              ["Legal", {"Privacy Policy": "/privacy"}],
             ].map(([title, links], i) => (
               <div key={i}>
                 <h4 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#bbb] mb-3.5">{title as string}</h4>
