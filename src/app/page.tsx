@@ -323,7 +323,11 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-[12px] text-[#ccc] mt-10 pt-6 border-t border-[#eee]">&copy; 2026 Angel Number. Free spiritual tool.</p>
+          <p className="text-[11px] text-[#ccc] leading-relaxed mt-6 max-w-[600px]">
+            Disclaimer: Angel number interpretations are for spiritual guidance and self-reflection only.
+            They are not predictions or substitutes for professional advice.
+          </p>
+          <p className="text-[12px] text-[#ccc] mt-6 pt-6 border-t border-[#eee]">&copy; 2026 Angel Number. Free spiritual tool.</p>
         </div>
       </footer>
 
