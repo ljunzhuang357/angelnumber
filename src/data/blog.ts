@@ -14,6 +14,8 @@ export interface BlogPost {
   faq?: { question: string; answer: string }[];
 }
 
+import { numberPages } from "./blog-numbers";
+
 const STOP_WORDS = new Set([
   "a","an","the","and","or","but","in","on","at","to","for","of","with","by",
   "is","are","was","were","be","been","being","have","has","had","do","does",
@@ -51,13 +53,13 @@ export function getRelatedPosts(currentSlug: string, max: number = 4): BlogPost[
   return scored.filter((s) => s.score > 0).map((s) => s.post);
 }
 
-export const blogPosts: BlogPost[] = [
+const corePosts: BlogPost[] = [
   {
     slug: "angel-number-meanings-complete-guide",
     title: "Angel Number Meanings: The Complete Guide to Numbers 0–999",
     description:
       "Everything you need to know about angel numbers. What they mean, why you keep seeing them, and how to interpret repeating numbers in love, career, and spiritual life.",
-    date: "2026-06-15",
+    date: "2026-06-20",
     author: "Angel Number Team",
     sections: [
       {
@@ -528,6 +530,82 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "111-angel-number-meaning-complete",
+    title: "111 Angel Number Meaning: Manifestation, New Beginnings, and Spiritual Awakening",
+    description:
+      "Seeing 111 everywhere? This powerful angel number means your thoughts are manifesting into reality at lightning speed. Discover what 111 means for love, career, twin flames, and your spiritual path.",
+    date: "2026-06-20",
+    author: "Angel Number Team",
+    sections: [
+      {
+        heading: "What Does Angel Number 111 Mean?",
+        paragraphs: [
+          "111 is one of the most powerful angel numbers you can see. It's a wake-up call from the universe telling you that your thoughts are becoming reality faster than usual. Every idea, worry, or dream you hold in your mind right now is gaining momentum. The veil between thinking and creating is thinner than ever.",
+          "Unlike 222 (which asks for patience) or 444 (which reassures you of protection), 111 is a number of action. It tells you to pay close attention to your mental state because whatever you focus on — good or bad — is about to multiply in your life.",
+          'The number 1 in numerology represents leadership, initiative, and raw creative power. When tripled to 111, that energy is amplified and infused with the vibration of the master number 11 — making 111 one of the most potent manifestation signals in the angel number system. The universe is telling you: "Watch your thoughts. They are about to become things."',
+        ],
+      },
+      {
+        heading: "111 Angel Number Meaning in Love",
+        paragraphs: [
+          "When 111 appears in the context of love, it's a sign that your romantic life is entering a phase of active creation. Whether you're single or in a relationship, the thoughts you hold about love right now are shaping your reality. This is not a time for doubt or fear — it's a time to get clear on what you truly want.",
+          "For singles, 111 is an exciting sign that a new romantic chapter is approaching. But the catch is that you'll attract someone who matches your current energy. If you're feeling confident and open, you'll draw in a partner who reflects that. If you're carrying fear or resignation, that will also be mirrored back to you.",
+          "If you're in a relationship, 111 signals a fresh phase. This could mean deepening your connection, having an important conversation you've been avoiding, or bringing more intentionality into your daily interactions. 111 in an existing relationship is a green light to dream bigger together.",
+        ],
+      },
+      {
+        heading: "111 Angel Number Meaning in Career",
+        paragraphs: [
+          "In your career, 111 is one of the clearest signals you can receive. It says: your professional ideas are potent right now. That business concept you keep thinking about? Start it. That career change you're afraid to make? The universe is backing you. This number often appears right before a breakthrough — a promotion, a new opportunity, or a creative surge that advances your work.",
+          "If you've been feeling stuck or uncertain about your career direction, 111 is confirmation that a shift is possible, but it requires your active participation. The universe won't hand you a new career — it will put inspired ideas in your path and wait for you to act on them.",
+          "For entrepreneurs and creatives, 111 is an especially powerful sign. It indicates that your ideas are aligned with the universe's creative flow. This is the time to launch, to pitch, to put your work into the world. Don't wait for perfect conditions — 111 says the conditions are already aligned enough. Move now.",
+        ],
+      },
+      {
+        heading: "111 — Spiritual Meaning and Awakening",
+        paragraphs: [
+          "Spiritually, 111 is often the first angel number people notice when they're undergoing a spiritual awakening. It's the cosmic alarm clock that wakes you up to the deeper reality behind everyday life. If you've been seeing 111 frequently, it means your spiritual perception is sharpening. You're beginning to notice synchronicities, patterns, and connections that you previously missed.",
+          "111 is also a reminder that you are not separate from the universe — you are an active participant in its creation. Your thoughts don't just describe reality; they shape it. This is a profound spiritual responsibility. 111 asks you to become conscious of what you're creating, moment by moment.",
+          "Meditation and mindfulness practices are especially powerful when 111 is active in your life. Even five minutes of quiet awareness each day can dramatically shift the quality of your thoughts — and since 111 amplifies whatever you think, those few minutes of clarity ripple outward into everything you manifest.",
+        ],
+      },
+      {
+        heading: "111 Angel Number Twin Flame Connection",
+        paragraphs: [
+          "In the twin flame journey, 111 is a significant number that often appears at the very beginning of the path. It signals that a twin flame meeting or awakening is imminent. If you've been seeing 111 frequently, it may be preparing you for a soul-level encounter that will transform how you understand love and connection.",
+          "For those already in a twin flame relationship, 111 indicates rapid growth. The runner-chaser dynamic is shifting. Old patterns that kept you in separation are dissolving. 111 carries the energy of alignment — as you raise your own vibration, your twin flame senses it through the energetic bond.",
+          "Unlike 222 which asks for patience in the twin flame journey, 111 calls for active alignment. The universe is saying: the connection is ready to evolve. Are your thoughts aligned with that evolution?",
+        ],
+      },
+      {
+        heading: "What to Do When You Keep Seeing 111",
+        paragraphs: [
+          "When 111 appears, the most powerful response is to pause. Stop what you're doing, take a breath, and notice what you were just thinking about. That thought is the message. 111 doesn't appear randomly — it catches you mid-thought to draw your attention to what you're creating.",
+          "If your thought at the moment of seeing 111 was positive, lean into it. Hold that image for an extra 30 seconds. Add feeling to it. This is how you co-create with the universe: by catching the good thoughts and amplifying them intentionally.",
+          "If your thought was anxious or negative, don't panic. Simply acknowledge it and consciously redirect. Say to yourself: I now choose a different thought. The power of 111 is that it works both ways — once you're aware of it, you can choose what to amplify.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Is 111 a lucky angel number?",
+        answer: "Yes, 111 is considered a very lucky number because it indicates that your thoughts are manifesting rapidly. However, it's neither good nor bad — it amplifies whatever you're thinking. The luck comes from maintaining positive thoughts when 111 appears.",
+      },
+      {
+        question: "What's the difference between 111 and 1111?",
+        answer: "111 carries the energy of manifestation and new beginnings. 1111 amplifies this with the power of the master number 11, often signaling spiritual awakening and the start of a twin flame journey. 1111 is considered the more spiritually charged version of 111.",
+      },
+      {
+        question: "Why do I see 111 after a breakup?",
+        answer: "Seeing 111 after a breakup is a sign that a new chapter in your love life is beginning. The universe is telling you that the ending cleared space for something new. Pay attention to what you're thinking about love during this time — those thoughts are shaping your next relationship.",
+      },
+      {
+        question: "Does 111 mean I should start a new business?",
+        answer: "111 in a career context strongly suggests that new professional ideas are potent and worth pursuing. If you've been thinking about starting a business, this number is a green light — but it also requires your active effort. The universe opens doors; you have to walk through them.",
+      },
+    ],
+  },
+  {
     slug: "1212-angel-number-meaning",
     title: "1212 Angel Number Meaning: Spiritual Alignment and New Beginnings",
     description:
@@ -570,3 +648,6 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+const coreBlogPosts: BlogPost[] = corePosts;
+export const blogPosts: BlogPost[] = [...coreBlogPosts, ...numberPages];
