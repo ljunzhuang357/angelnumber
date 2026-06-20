@@ -14,7 +14,66 @@ export interface BlogPost {
   faq?: { question: string; answer: string }[];
 }
 
+import React from "react";
 import { numberPages } from "./blog-numbers";
+
+/** Map angel number → blog slug for cross-linking */
+export const NUMBER_SLUG_MAP: Record<string, string> = {
+  "000":"000-angel-number-meaning","11":"11-angel-number-meaning",
+  "22":"22-angel-number-meaning","33":"33-angel-number-meaning",
+  "44":"44-angel-number-meaning","55":"55-angel-number-meaning",
+  "111":"111-angel-number-meaning-complete","222":"222-angel-number-meaning-complete",
+  "333":"333-angel-number-meaning","444":"444-angel-number-meaning-complete",
+  "555":"555-angel-number-meaning-complete","666":"666-angel-number-meaning",
+  "777":"777-angel-number-meaning-complete","888":"888-angel-number-meaning-complete",
+  "999":"999-angel-number-meaning","1010":"1010-angel-number-meaning",
+  "1111":"1111-angel-number-meaning-complete","1212":"1212-angel-number-meaning-complete",
+  "1234":"1234-angel-number-meaning","1313":"1313-angel-number-meaning",
+  "1414":"1414-angel-number-meaning","1515":"1515-angel-number-meaning",
+  "1616":"1616-angel-number-meaning","1717":"1717-angel-number-meaning",
+  "1818":"1818-angel-number-meaning","1919":"1919-angel-number-meaning",
+  "2020":"2020-angel-number-meaning","2121":"2121-angel-number-meaning",
+  "2222":"2222-angel-number-meaning","3333":"3333-angel-number-meaning",
+  "4444":"4444-angel-number-meaning","1122":"1122-angel-number-meaning",
+  "911":"911-angel-number-meaning",
+};
+
+/** Sort keys: longest first so 1111 matches before 111 */
+const SORTED_NUMS = Object.keys(NUMBER_SLUG_MAP).sort((a, b) => b.length - a.length);
+const NUM_PATTERN = new RegExp(`\\b(${SORTED_NUMS.join("|")})\\b`, "g");
+
+/** Extract the angel number from a slug like "111-angel-number-meaning-complete" */
+export function numberFromSlug(slug: string): string {
+  return slug.split("-")[0];
+}
+
+/** Turn known angel numbers in text into links, skipping the current page's number */
+export function linkifyParagraph(text: string, currentNum: string | null): React.ReactNode[] {
+  if (!currentNum) return [text];
+  const parts: React.ReactNode[] = [];
+  let last = 0, m: RegExpExecArray | null;
+  NUM_PATTERN.lastIndex = 0;
+  while ((m = NUM_PATTERN.exec(text)) !== null) {
+    const num = m[0];
+    if (num !== currentNum && NUMBER_SLUG_MAP[num]) {
+      if (m.index > last) parts.push(text.slice(last, m.index));
+      parts.push(
+        React.createElement(
+          "a",
+          {
+            key: m.index,
+            href: `/blog/${NUMBER_SLUG_MAP[num]}`,
+            className: "underline decoration-dotted underline-offset-2 hover:text-[#d97757] hover:decoration-solid transition-colors",
+          },
+          num
+        )
+      );
+      last = m.index + num.length;
+    }
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length ? parts : [text];
+}
 
 const STOP_WORDS = new Set([
   "a","an","the","and","or","but","in","on","at","to","for","of","with","by",

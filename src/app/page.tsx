@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { ALL_KEYS, findAngelNumber, isPopular, POPULAR_KEYS, getEntry, type AngelEntry } from "@/data/angels";
+import { NUMBER_SLUG_MAP } from "@/data/blog";
 
 const ACCENT = "#d97757";
 
@@ -219,16 +221,17 @@ export default function Home() {
             {POPULAR_KEYS.slice(0, 24).map(k => {
               const e = getEntry(k);
               if (!e) return null;
+              const slug = NUMBER_SLUG_MAP[k];
               return (
-                <button key={k} onClick={() => { setQuery(k); handleSearch(k); }}
+                <Link key={k} href={slug ? `/blog/${slug}` : "#tool"}
                   className="flex flex-col items-center text-center py-7 px-4 border border-white/[0.08] rounded-xl cursor-pointer transition-all
-                    hover:border-[#d97757] hover:bg-[rgba(217,119,87,0.04)] hover:-translate-y-0.5">
+                    hover:border-[#d97757] hover:bg-[rgba(217,119,87,0.04)] hover:-translate-y-0.5 no-underline">
                   <div className="text-[26px] font-bold tracking-[-0.02em] text-white mb-0.5">{k}</div>
                   <div className="text-[11px] text-[#d97757] font-medium uppercase tracking-[0.04em] min-h-[16px]">{e.badge}</div>
                   <div className="flex-1 flex items-center justify-center">
                     <div className="text-[13px] text-white/45 leading-relaxed">{e.title}</div>
                   </div>
-                </button>
+                </Link>
               );
             })}
           </div>

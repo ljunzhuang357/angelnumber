@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { blogPosts, getRelatedPosts } from "@/data/blog";
+import { blogPosts, getRelatedPosts, linkifyParagraph, numberFromSlug } from "@/data/blog";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
+  const currentNum = numberFromSlug(slug);
+  const renderPara = (text: string) => linkifyParagraph(text, currentNum);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,7 +72,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     className="text-base leading-relaxed mb-4 last:mb-0"
                     style={{ color: "#444" }}
                   >
-                    {p}
+                    {renderPara(p)}
                   </p>
                 ))}
                 {section.faq && (
@@ -88,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                           {item.question}
                         </summary>
                         <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "#666" }}>
-                          {item.answer}
+                          {renderPara(item.answer)}
                         </p>
                       </details>
                     ))}
