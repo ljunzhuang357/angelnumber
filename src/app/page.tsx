@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { ALL_KEYS, findAngelNumber, isPopular, POPULAR_KEYS, getEntry, type AngelEntry } from "@/data/angels";
 import { NUMBER_SLUG_MAP } from "@/data/blog";
 
@@ -21,7 +21,6 @@ export default function Home() {
   const [notFound, setNotFound] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [shake, setShake] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
@@ -60,25 +59,58 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebApplication",
+            "@type": "WebSite",
             name: "Angel Number — Decode the numbers you keep seeing",
             url: "https://angelnumber.space",
             description:
               "Enter any repeating number and discover its spiritual meaning across love, career, and life. Free, instant, no sign-up.",
-            applicationCategory: "ReferenceApplication",
-            operatingSystem: "All",
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.8",
-              ratingCount: "1247",
-              bestRating: "5",
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Angel Number",
+            url: "https://angelnumber.space",
+            logo: "https://angelnumber.space/logo.png",
+            description: "Enter any repeating number and discover its spiritual meaning across love, career, and life. Free, instant, no sign-up.",
+            sameAs: [],
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer support",
+              url: "https://angelnumber.space/contact",
             },
-            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-            author: {
-              "@type": "Organization",
-              name: "Angel Number",
-              url: "https://angelnumber.space",
-            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://angelnumber.space" },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              { "@type": "Question", name: "What are angel numbers?", acceptedAnswer: { "@type": "Answer", text: "Angel numbers are repeating number sequences like 111, 444, or 1212 that carry spiritual meaning. Many believe they are messages from the universe, spirit guides, or your higher self." } },
+              { "@type": "Question", name: "How do I know if I'm seeing one?", acceptedAnswer: { "@type": "Answer", text: "If the same number keeps appearing in unexpected places — clocks, receipts, license plates — and it feels meaningful rather than random, that is likely an angel number." } },
+              { "@type": "Question", name: "Is this completely free?", acceptedAnswer: { "@type": "Answer", text: "Yes, it is completely free. No hidden charges, no credit card required. Every number meaning is fully accessible to everyone, always." } },
+              { "@type": "Question", name: "What if my number isn't listed?", acceptedAnswer: { "@type": "Answer", text: "We cover a wide range of angel numbers across all common patterns. If yours isn't here, try a similar repeating pattern — for example, 2222 carries the same energy as 222." } },
+              { "@type": "Question", name: "Why do I keep seeing the same number?", acceptedAnswer: { "@type": "Answer", text: "Repetition is the universe's way of making sure you pay attention. When the same number appears across different contexts repeatedly, it means the message is important and timely." } },
+            ],
           }),
         }}
       />
@@ -277,17 +309,14 @@ export default function Home() {
             { q: "Is this completely free?", a: "Yes, it is completely free. No hidden charges, no credit card required. Every number meaning is fully accessible to everyone, always." },
             { q: "What if my number isn't listed?", a: `We cover ${ALL_KEYS.length} angel numbers across all common patterns. If yours isn't here, try a similar repeating pattern — for example, 2222 carries the same energy as 222.` },
             { q: "Why do I keep seeing the same number?", a: "Repetition is the universe's way of making sure you pay attention. When the same number appears across different contexts repeatedly, it means the message is important and timely." },
-          ].map((faq, i) => (
-            <div key={i} className="border-b border-[#eee] last:border-b-0">
-              <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                className="flex justify-between items-center w-full py-5 text-[16px] font-medium bg-none border-none cursor-pointer text-[#1a1a1a] text-left transition-colors hover:text-[#d97757]">
+          ].map((faq) => (
+            <details key={faq.q} className="border-b border-[#eeebe5] last:border-b-0 group">
+              <summary className="flex justify-between items-center w-full py-[18px] text-sm font-medium cursor-pointer font-sans text-[#1a1816] hover:text-[#d97757] transition-colors [&::-webkit-details-marker]:hidden">
                 {faq.q}
-                <span className={`text-[13px] text-[#ccc] flex-shrink-0 ml-4 transition-transform ${openFaq === i ? "rotate-180 text-[#d97757]" : ""}`}>▾</span>
-              </button>
-              {openFaq === i && (
-                <div className="pb-5 text-[15px] text-[#666] leading-relaxed">{faq.a}</div>
-              )}
-            </div>
+                <span className="text-xs text-[#ccc] shrink-0 ml-3 transition-transform duration-300 group-open:rotate-180">▾</span>
+              </summary>
+              <div className="px-0 pb-[18px] text-sm text-[#666] leading-relaxed">{faq.a}</div>
+            </details>
           ))}
         </div>
       </section>

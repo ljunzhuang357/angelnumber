@@ -5,8 +5,11 @@ Angel Number is a free online tool that decodes repeating numbers (111, 222, 444
 
 ## Core pages
 
-- [Home page](https://angelnumber.space): interactive decoder + meanings for 20+ angel numbers + FAQ
+- [Home page](https://angelnumber.space): interactive decoder + meanings for 20+ angel numbers + FAQ + popular numbers grid
 - [Blog](https://angelnumber.space/blog): in-depth guides to angel number meanings
+- [About](https://angelnumber.space/about): about Angel Number tool
+- [Contact](https://angelnumber.space/contact): get in touch
+- [Privacy Policy](https://angelnumber.space/privacy): privacy and data handling
 
 ## Blog
 
@@ -20,7 +23,43 @@ Angel Number is a free online tool that decodes repeating numbers (111, 222, 444
 - [555 Angel Number Meaning Change](https://angelnumber.space/blog/555-angel-number-meaning-change): what 555 means for career, relationships, and life transformation
 - [777 Angel Number Meaning Luck](https://angelnumber.space/blog/777-angel-number-meaning-luck): luck, spiritual growth, and divine alignment with 777
 - [1212 Angel Number Meaning](https://angelnumber.space/blog/1212-angel-number-meaning): spiritual alignment and new beginnings with 1212
+- [111 Angel Number Meaning: Complete Guide](https://angelnumber.space/blog/111-angel-number-meaning-complete): manifestation, new beginnings, and spiritual awakening meaning of 111
+- [000 Angel Number Meaning](https://angelnumber.space/blog/000-angel-number-meaning): what 000 means for love, career, and spiritual growth
+- [11 Angel Number Meaning](https://angelnumber.space/blog/11-angel-number-meaning): intuition, spiritual insight, and awakening meaning of 11
+- [22 Angel Number Meaning](https://angelnumber.space/blog/22-angel-number-meaning): master builder energy, dreams into reality, balance
+- [33 Angel Number Meaning](https://angelnumber.space/blog/33-angel-number-meaning): creativity, communication, and spiritual guidance with 33
+- [44 Angel Number Meaning](https://angelnumber.space/blog/44-angel-number-meaning): stability, hard work, and foundation-building with 44
+- [55 Angel Number Meaning](https://angelnumber.space/blog/55-angel-number-meaning): major life changes, freedom, and transformation with 55
+- [66 Angel Number Meaning](https://angelnumber.space/blog/66-angel-number-meaning): healing, family, and balance with 66
+- [99 Angel Number Meaning](https://angelnumber.space/blog/99-angel-number-meaning): completion, endings, and spiritual closure with 99
+- [1010 Angel Number Meaning](https://angelnumber.space/blog/1010-angel-number-meaning): spiritual awakening, alignment, and divine timing with 1010
+- [1111 Angel Number Meaning](https://angelnumber.space/blog/1111-angel-number-meaning-complete): manifestation, awakening, and spiritual alignment with 1111
+- [1234 Angel Number Meaning](https://angelnumber.space/blog/1234-angel-number-meaning): progression, natural order, and step-by-step growth
+- [1313 Angel Number Meaning](https://angelnumber.space/blog/1313-angel-number-meaning): transformation, growth, and spiritual evolution with 1313
+- [1414 Angel Number Meaning](https://angelnumber.space/blog/1414-angel-number-meaning): angels are near, support, and encouragement with 1414
+- [1515 Angel Number Meaning](https://angelnumber.space/blog/1515-angel-number-meaning): major life changes, transformation, and new opportunities
+- [1616 Angel Number Meaning](https://angelnumber.space/blog/1616-angel-number-meaning): material and spiritual balance, abundance, and stability
+- [1717 Angel Number Meaning](https://angelnumber.space/blog/1717-angel-number-meaning): spiritual awakening, alignment, and divine purpose with 1717
+- [1818 Angel Number Meaning](https://angelnumber.space/blog/1818-angel-number-meaning): abundance, prosperity, and karmic rewards with 1818
+- [1919 Angel Number Meaning](https://angelnumber.space/blog/1919-angel-number-meaning): endings, new beginnings, and spiritual completion
+- [2020 Angel Number Meaning](https://angelnumber.space/blog/2020-angel-number-meaning): divine partnership, trust, and alignment with 2020
+- [2121 Angel Number Meaning](https://angelnumber.space/blog/2121-angel-number-meaning): manifestation, positivity, and aligned action with 2121
+- [2222 Angel Number Meaning](https://angelnumber.space/blog/2222-angel-number-meaning): balance, harmony, and alignment in all areas of life
+- [3333 Angel Number Meaning](https://angelnumber.space/blog/3333-angel-number-meaning): divine protection, encouragement, and creative expression
+- [4444 Angel Number Meaning](https://angelnumber.space/blog/4444-angel-number-meaning): amplified stability, protection, and angelic presence
+- [1122 Angel Number Meaning](https://angelnumber.space/blog/1122-angel-number-meaning): balance, manifestation, and spiritual partnership with 1122
+- [911 Angel Number Meaning](https://angelnumber.space/blog/911-angel-number-meaning): spiritual awakening, emergency, and urgent divine guidance
 
 ## Data
 
 The tool covers 20+ angel numbers including 000, 111, 222, 333, 444, 555, 666, 777, 888, 999, 11, 22, 33, 44, 55, 1010, 1111, 1212, 1234, 1313, 1414, 1515, 1616, 1717. Each number has a badge, short title, body text, and four area-specific readings (love, career, spiritual, guidance).
+
+The data is structured as a flat key-value dictionary keyed by the number string. Each entry contains: badge (category label), title (short meaning), body (full explanation), love, career, spiritual, guidance (area-specific readings).
+
+## Optional
+
+- The tool uses semantic HTML with JSON-LD structured data (WebSite, Organization, FAQPage, BreadcrumbList schemas)
+- Pages include Open Graph and Twitter Card meta tags for social sharing
+- OG image generation at /api/og using Vercel Edge (@vercel/og)
+- Sitemap available at /sitemap.xml
+- All blog content is available as static pages with article schema markup
