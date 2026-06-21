@@ -27,15 +27,22 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="min-h-screen" style={{ background: "#fefcfb" }}>
-      <div className="mx-auto max-w-2xl px-5 py-16 sm:py-24">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 text-sm mb-10"
-          style={{ color: "#999" }}
-        >
-          ← Back to decoder
-        </Link>
+      {/* ─── Nav ─── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/[0.06]">
+        <div className="max-w-[1280px] mx-auto px-10 max-md:px-6 flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-2.5 text-[17px] font-semibold tracking-tight no-underline text-[#1a1a1a]">
+            <img src="/logo.png" alt="Angel Number" className="w-7 h-7 rounded-[7px] object-contain" />
+            Angel Number
+          </Link>
+          <div className="flex gap-2">
+            <Link href="/blog" className="btn-ghost">Blog</Link>
+            <Link href="/#tool" className="btn-ghost">Decode</Link>
+            <Link href="/#meanings" className="btn-primary">Try Now</Link>
+          </div>
+        </div>
+      </nav>
 
+      <div className="mx-auto max-w-2xl px-5 pt-[120px] pb-16 sm:pb-24">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3" style={{ color: "#1a1a1a" }}>
           Angel Number Meanings
         </h1>
